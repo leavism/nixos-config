@@ -50,6 +50,8 @@ let username = user.username; in
     casks = [
       "iterm2"
       "visual-studio-code"
+      "zed"
+      "zen-browser"
 
       "zoom"
       "slack"
@@ -83,7 +85,7 @@ let username = user.username; in
       "Microsoft Outlook" = 985367838;
       "Microsoft Word" = 462054704;
       "Microsoft PowerPoint" = 462062816;
-    # };
+    };
   };
 
   # Enable home-manager

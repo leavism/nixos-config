@@ -33,10 +33,14 @@
       url = "github:nikitabobko/homebrew-tap";
       flake = false;
     };
+    jankyborders = {
+      url = "github:FelixKratz/homebrew-formulae";
+      flake = false;
+    };
   };
 
   # Add your tap into the outputs
-  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, aerospace, nixpkgs, disko } @inputs:
+  outputs = { self, darwin, nix-homebrew, homebrew-bundle, homebrew-core, homebrew-cask, home-manager, aerospace, jankyborders, nixpkgs, disko } @inputs:
     let
       # Define users and their configurations
       usersList = {
@@ -113,6 +117,7 @@
                 "homebrew/homebrew-cask" = homebrew-cask;
                 "homebrew/homebrew-bundle" = homebrew-bundle;
                 "nikitabobko/homebrew-tap" = inputs.aerospace;
+                "FelixKratz/homebrew-formulae" = inputs.jankyborders;
               };
               mutableTaps = false; # Declarative taps
               autoMigrate = true;

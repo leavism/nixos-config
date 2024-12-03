@@ -7,6 +7,7 @@ let username = user.username; in
   ];
 
   services.nix-daemon.enable = true;
+  services.jankyborders.enable = true;
 
   nix = {
     package = pkgs.nix;
@@ -47,6 +48,9 @@ let username = user.username; in
   homebrew = {
     enable = lib.mkForce true;
     onActivation.cleanup = lib.mkDefault "zap";
+    brews = [
+      "borders"   
+    ];
     casks = [
       "iterm2"
       "visual-studio-code"

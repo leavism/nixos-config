@@ -40,10 +40,10 @@ let username = user.username; in
       };
 
       dock = {
-        autohide = false;
+        autohide = true;
         show-recents = false;
         launchanim = true;
-        orientation = "bottom";
+        orientation = "left";
         tilesize = 48;
       };
     };
@@ -53,6 +53,7 @@ let username = user.username; in
   local.dock.enable = true;
   local.dock.entries = [
     { path = "/System/Cryptexes/App/System/Applications/Safari.app"; }
+    { path = "/Applications/Zen Browser.app"; }
     { path = "/System/Applications/Messages.app/"; }
     { path = "/System/Applications/iPhone Mirroring.app/"; }
     { path = "/Applications/Obsidian.app"; }

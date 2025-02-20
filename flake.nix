@@ -26,7 +26,8 @@
       flake = false;
     };
     homebrew-cask = {
-      url = "github:homebrew/homebrew-cask";
+      # It's a capitalized H
+      url = "github:Homebrew/homebrew-cask";
       flake = false;
     };
     aerospace = {

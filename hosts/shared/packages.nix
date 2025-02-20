@@ -1,14 +1,15 @@
 /*
  * === Nix Packages Shared Cross-Platform ===
  *
- * For proper macOS compatibility, only put terminal packages. Any GUI packages
- * will be semi-permanent on macOS and is tedious to remove when longer needed.
+ * For easier macOS compatibility, only put terminal packages. Any GUI packages
+ * will be semi-permanent on macOS and is tedious to remove when no longer needed.
  */
 { pkgs }:
 with pkgs; [
   # Nix packages here
   git
   zsh
+  chezmoi
   tmux
   neovim
 

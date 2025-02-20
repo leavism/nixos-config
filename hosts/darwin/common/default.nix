@@ -52,9 +52,10 @@ let username = user.username; in
       "borders"   
     ];
     casks = [
-      "iterm2"
+      "font-geist-mono-nerd-font"
+      
+      "ghostty"
       "visual-studio-code"
-      "zed"
       "zen-browser"
 
       "zoom"

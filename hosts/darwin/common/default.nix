@@ -57,8 +57,6 @@ let username = user.username; in
     brews = [
       "borders"
       "tpm"
-      "zoxide"
-      "fzf"
     ];
     casks = [
       "font-geist-mono-nerd-font"

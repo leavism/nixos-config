@@ -12,6 +12,9 @@ with pkgs; [
   chezmoi
   tmux
   neovim
+  sesh
+  zoxide
+  fzf
 
   eza
   oh-my-posh

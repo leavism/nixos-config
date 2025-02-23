@@ -7,7 +7,13 @@ let username = user.username; in
   ];
 
   services.nix-daemon.enable = true;
-  services.jankyborders.enable = true;
+  services.jankyborders = {
+    enable = true;
+    hidpi = true;
+    active_color = "0xFF89B4FA";
+    inactive_color = "0x00";
+    width = 5.0;
+  };
 
   nix = {
     package = pkgs.nix;
@@ -49,10 +55,13 @@ let username = user.username; in
     enable = lib.mkForce true;
     onActivation.cleanup = lib.mkDefault "zap";
     brews = [
-      "borders"   
+      "borders"
+      "tpm"
     ];
     casks = [
       "font-geist-mono-nerd-font"
+      "vial"
+      "appcleaner"
       
       "ghostty"
       "visual-studio-code"
@@ -66,6 +75,7 @@ let username = user.username; in
       "1password"
 
       "bitwarden"
+      "logi-options+"
       "figma"
       "discord"
 

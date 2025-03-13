@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user,... }:
+{ pkgs, lib, user,... }:
 
 let username = user.username; in
 {
@@ -12,7 +12,7 @@ let username = user.username; in
     hidpi = true;
     active_color = "0xFF89B4FA";
     inactive_color = "0x00";
-    width = 5.0;
+    width = 10.0;
   };
 
   nix = {
@@ -57,6 +57,8 @@ let username = user.username; in
     brews = [
       "borders"
       "tpm"
+      "gh"
+      "nvm"
     ];
     casks = [
       "font-geist-mono-nerd-font"

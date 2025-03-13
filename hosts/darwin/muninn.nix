@@ -1,4 +1,4 @@
-{ config, pkgs, user,... }:
+{ config, user,... }:
 
 let username = user.username; in
 {

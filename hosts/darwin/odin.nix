@@ -1,4 +1,4 @@
-{ config, pkgs, user,... }:
+{ config, user,... }:
 
 let username = user.username; in
 {
@@ -32,6 +32,10 @@ let username = user.username; in
     checks.verifyNixPath = false;
 
     defaults = {
+      finder = {
+        NewWindowTarget = "Home";
+        FXPreferredViewStyle = "Nlsv";
+      };
       NSGlobalDomain = {
         AppleShowAllExtensions = true;
         ApplePressAndHoldEnabled = false;
@@ -49,7 +53,7 @@ let username = user.username; in
         show-recents = false;
         launchanim = true;
         orientation = "left";
-        tilesize = 48;
+        tilesize = 40;
       };
     };
   };
@@ -65,7 +69,7 @@ let username = user.username; in
     {
       path = "${config.users.users.${username}.home}/Downloads";
       section = "others";
-      options = "--sort name --view grid --display stack";
+      options = "--sort dateadded --view grid --display stack";
     }
   ];
 }

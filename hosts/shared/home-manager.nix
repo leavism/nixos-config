@@ -7,7 +7,7 @@
  * contents of users’ home directories. This includes programs, configuration
  * files, environment variables, and arbitrary files.
  */
-{ config, pkgs, lib, user, ... }:
+{ pkgs, lib, user, ... }:
 
 let name = user.fullName;
     username = user.username;

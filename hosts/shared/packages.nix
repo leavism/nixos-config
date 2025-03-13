@@ -15,10 +15,10 @@ with pkgs; [
   sesh
   zoxide
   fzf
-
+  gum
+  lazygit
   eza
   oh-my-posh
-
-  nodenv
+  cargo # For some Mason packages
   pyenv
 ]

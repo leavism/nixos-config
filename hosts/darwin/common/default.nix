@@ -1,5 +1,10 @@
 { pkgs, lib, user,... }:
 
+/*
+  === Configuration for All macOS Devices ===
+ *
+ * Sensible defaults for all my macOS machines.
+ */
 let username = user.username; in
 {
   imports = [
@@ -23,6 +28,7 @@ let username = user.username; in
       trusted-public-keys = [ "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=" ];
     };
 
+    # Garbage collection
     gc = {
       user = "root";
       automatic = true;
@@ -36,9 +42,9 @@ let username = user.username; in
   };
 
   environment.systemPackages = with pkgs; [
-    # System packages here
-    # For macOS hosts, keep this to only terminal packages.
-    # GUI packages will be installed semi-permanently and removing them is tedious.
+    # System packages here. 
+    # For macOS hosts, keep this to only terminal packages. GUI packages are installed
+    # semi-permanently and removing them is tedious.
     dockutil # declarative
   ] ++ (import ../../shared/packages.nix { inherit pkgs; });
 
@@ -62,7 +68,6 @@ let username = user.username; in
     ];
     casks = [
       "font-geist-mono-nerd-font"
-      "vial"
       "appcleaner"
       
       "ghostty"

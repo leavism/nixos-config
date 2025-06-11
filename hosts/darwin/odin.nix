@@ -4,7 +4,6 @@ let username = user.username; in
 {
   imports = [
     ./common
-    ./common/dock
   ];
 
   # === Common Homebrew Configuration Overwrite ===
@@ -54,22 +53,29 @@ let username = user.username; in
         launchanim = true;
         orientation = "left";
         tilesize = 40;
+        persistent-apps = [
+          "/System/Cryptexes/App/System/Applications/Safari.app"
+          "/Applications/Zen Browser.app"
+          "/System/Applications/Messages.app/"
+          "/System/Applications/iPhone Mirroring.app/"
+          "/Applications/Obsidian.app"
+        ];
       };
     };
   };
 
   # Fully declarative dock using the latest from Nix Store
-  local.dock.enable = true;
-  local.dock.entries = [
-    { path = "/System/Cryptexes/App/System/Applications/Safari.app"; }
-    { path = "/Applications/Zen Browser.app"; }
-    { path = "/System/Applications/Messages.app/"; }
-    { path = "/System/Applications/iPhone Mirroring.app/"; }
-    { path = "/Applications/Obsidian.app"; }
-    {
-      path = "${config.users.users.${username}.home}/Downloads";
-      section = "others";
-      options = "--sort dateadded --view grid --display stack";
-    }
-  ];
+  # local.dock.enable = true;
+  # local.dock.entries = [
+  #   { path = "/System/Cryptexes/App/System/Applications/Safari.app"; }
+  #   { path = "/Applications/Zen Browser.app"; }
+  #   { path = "/System/Applications/Messages.app/"; }
+  #   { path = "/System/Applications/iPhone Mirroring.app/"; }
+  #   { path = "/Applications/Obsidian.app"; }
+  #   {
+  #     path = "${config.users.users.${username}.home}/Downloads";
+  #     section = "others";
+  #     options = "--sort dateadded --view grid --display stack";
+  #   }
+  # ];
 }

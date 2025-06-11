@@ -22,6 +22,7 @@ with pkgs; [
   
   # Configurations
   chezmoi
+  syncthing
   
   # Nvim configurations
   neovim

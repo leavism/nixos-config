@@ -11,7 +11,10 @@ let username = user.username; in
     ../../shared
   ];
 
-  services.nix-daemon.enable = true;
+  system.primaryUser = username;
+
+  services.tailscale.enable = true;
+  
   services.jankyborders = {
     enable = true;
     hidpi = true;
@@ -30,7 +33,6 @@ let username = user.username; in
 
     # Garbage collection
     gc = {
-      user = "root";
       automatic = true;
       interval = { Weekday = 0; Hour = 2; Minute = 0; };
       options = "--delete-older-than 30d";
@@ -114,22 +116,26 @@ let username = user.username; in
   home-manager = {
     useGlobalPkgs = true;
     users.${username} = { pkgs, config, lib, ... }:{
-    home = {
-      enableNixpkgsReleaseCheck = false;
-      packages = pkgs.callPackage ../../shared/packages.nix {};
-      stateVersion = "23.11";
-    };
-    programs = {
-      # Overwrite and extend the shared home-manager configurations here
-      # Example:
-      # git = darwinHomeManager.git // { # Don't forget to merge into darwinHomeManager.git
-      #   userName = "overrideUserName";  # This overrides the shared config
-      # };
-    } // import ../../shared/home-manager.nix { inherit config pkgs lib user; };
+      home = {
+        enableNixpkgsReleaseCheck = false;
+        packages = pkgs.callPackage ../../shared/packages.nix {};
+        stateVersion = "23.11";
+      };
+      programs = {
+        # Overwrite and extend the shared home-manager configurations here
+        # Example:
+        # git = darwinHomeManager.git // { # Don't forget to merge into darwinHomeManager.git
+        #   userName = "overrideUserName";  # This overrides the shared config
+        # };
+      } // import ../../shared/home-manager.nix { inherit config pkgs lib user; };
 
-    # Marked broken Oct 20, 2022 check later to remove this
-    # https://github.com/nix-community/home-manager/issues/3344
-    manual.manpages.enable = false;
+      # Marked broken Oct 20, 2022 check later to remove this
+      # https://github.com/nix-community/home-manager/issues/3344
+      manual.manpages.enable = false;
+
+      services.syncthing = {
+        enable = true;
+      };
     };
   };
 }

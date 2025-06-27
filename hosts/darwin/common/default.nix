@@ -1,18 +1,77 @@
-{ pkgs, lib, user,... }:
-
 /*
-  === Configuration for All macOS Devices ===
- *
- * Sensible defaults for all my macOS machines.
- */
+=== Configuration for All macOS Devices ===
+*
+* Sensible defaults for all my macOS machines.
+*/
+{ pkgs, lib, user,... }:
 let username = user.username; in
 {
   imports = [
     ../../shared
   ];
 
-  system.primaryUser = username;
+  system = {
+    stateVersion = 4;
+    primaryUser = username;
+    checks.verifyNixPath = false;
 
+    defaults = {
+      # https://mynixos.com/nix-darwin/options/system.defaults.finder
+      finder = {
+        NewWindowTarget = "Home"; # Default folder shown in Finder
+        ShowExternalHardDrivesOnDesktop = false;
+        ShowMountedServersOnDesktop = false;
+        FXPreferredViewStyle = "Nlsv"; # Default Finder view
+      };
+
+      NSGlobalDomain = {
+        # https://mynixos.com/nix-darwin/options/system.defaults.NSGlobalDomain
+        AppleShowAllExtensions = true;
+        ApplePressAndHoldEnabled = false;
+
+        # Lower is faster
+        KeyRepeat = 2; # Values: 120, 90, 60, 30, 12, 6, 2
+        InitialKeyRepeat = 15; # Values: 120, 94, 68, 35, 25, 15
+
+        "com.apple.mouse.tapBehavior" = 1;
+        "com.apple.sound.beep.volume" = 0.0;
+        "com.apple.sound.beep.feedback" = 0;
+      };
+
+      dock = {
+        # https://mynixos.com/nix-darwin/options/system.defaults.dock
+        autohide = true;
+        autohide-time-modifier = 0.2;
+
+        show-recents = false;
+        launchanim = true;
+        orientation = "left";
+        tilesize = 48;
+        persistent-apps = [
+          "/System/Cryptexes/App/System/Applications/Safari.app"
+          "/Applications/Zen.app"
+          "/System/Applications/Messages.app/"
+          "/System/Applications/iPhone Mirroring.app/"
+          "/Applications/Obsidian.app"
+          "/Applications/Todoist.app/"
+        ];
+        
+        persistent-others = [
+          "/Users/${user.username}/Sync"
+          "/Users/${user.username}/Downloads"
+        ];
+        # https://mynixos.com/nix-darwin/option/system.defaults.dock.wvous-bl-corner
+        wvous-bl-corner = 1;
+        wvous-br-corner = 1;
+        wvous-tl-corner = 1;
+        wvous-tr-corner = 1;
+      };
+    };
+  };
+
+  # === Services ===
+  # Syncthing service is in homemanager below
+  
   services.tailscale.enable = true;
   
   services.jankyborders = {
@@ -45,8 +104,8 @@ let username = user.username; in
 
   environment.systemPackages = with pkgs; [
     # System packages here. 
-    # For macOS hosts, keep this to only terminal packages. GUI packages are installed
-    # semi-permanently and removing them is tedious.
+    # For macOS hosts, keep this to only terminal packages. GUI packages installed via
+    # are semi-permanently and removing them is tedious.
     dockutil # declarative
   ] ++ (import ../../shared/packages.nix { inherit pkgs; });
 
@@ -74,7 +133,7 @@ let username = user.username; in
       
       "ghostty"
       "visual-studio-code"
-      "zen-browser"
+      "zen"
 
       "zoom"
       "slack"
@@ -93,7 +152,6 @@ let username = user.username; in
       "sensei"
       "keka"
       "cleanshot"
-      "raycast"
       "homerow"
       "aerospace"
       "obsidian"

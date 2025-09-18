@@ -122,7 +122,11 @@ let username = user.username; in
     enable = lib.mkForce true;
     onActivation.cleanup = lib.mkDefault "zap";
     brews = [
-      "borders"
+      # TODO: Go back to stable release after October 2025
+      { 
+        name = "borders"; 
+        args = "HEAD";
+      }
       "tpm"
       "gh"
       "nvm"
@@ -139,7 +143,6 @@ let username = user.username; in
       "slack"
       "splashtop-business"
       "microsoft-teams"
-      "craft"
       "1password"
 
       "bitwarden"
@@ -157,7 +160,6 @@ let username = user.username; in
       "obsidian"
     ];
     masApps = {
-      "Things" = 904280696;
       "Goodnotes 6" = 1444383602;
 
       "Fantastical" = 975937182;

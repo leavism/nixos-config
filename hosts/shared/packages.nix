@@ -1,12 +1,13 @@
 /*
-  === Nix Packages Shared Cross-Platform ===
- *
- * For easier macOS compatibility, only put terminal packages. Any GUI packages
- * will be semi-permanent on macOS and is tedious to remove when no longer needed.
- * https://search.nixos.org/packages
- */
+   === Nix Packages Shared Cross-Platform ===
+  *
+  * For easier macOS compatibility, only put terminal packages. Any GUI packages
+  * will be semi-permanent on macOS and is tedious to remove when no longer needed.
+  * https://search.nixos.org/packages
+*/
 { pkgs }:
-with pkgs; [
+with pkgs;
+[
   # General development
   zsh
   oh-my-posh
@@ -21,13 +22,14 @@ with pkgs; [
   pyenv
   tailscale
   bat
-  
+
   # Configurations
   chezmoi
   syncthing
-  
+
   # Nvim configurations
   neovim
   lazygit
   cargo # For some Mason packages
+  nixfmt
 ]

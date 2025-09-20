@@ -16,7 +16,7 @@ in
 {
   git = {
     enable = true;
-    ignores = [ "*.swp", ".DS_Store"];
+    ignores = [ "*.swp" ".DS_Store"];
     userName = name;
     userEmail = email;
     lfs = {
@@ -35,6 +35,7 @@ in
 
   ssh = {
     enable = true;
+    enableDefaultConfig = false;
     includes = [
       (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
         "/home/${username}/.ssh/config_external"
@@ -45,10 +46,10 @@ in
     ];
     matchBlocks = {
       "github.com" = {
-        hostname = "github.com"
+        hostname = "github.com";
         user = "git";
         identitiesOnly = true;
-        identityFile = "~/${username}/.ssh/id_ed25519";
+        identityFile = "/Users/${username}/.ssh/id_ed25519";
         };
     };
   };

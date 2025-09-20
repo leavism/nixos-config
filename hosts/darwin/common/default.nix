@@ -17,7 +17,7 @@ in
     ../../shared
   ];
 
-  system = {
+  system = lib.mkDefault {
     stateVersion = 4;
     primaryUser = username;
     checks.verifyNixPath = false;
@@ -53,7 +53,7 @@ in
         show-recents = false;
         launchanim = true;
         orientation = "left";
-        tilesize = 48;
+        tilesize = 40;
         # https://mynixos.com/nix-darwin/option/system.defaults.dock.wvous-bl-corner
         wvous-bl-corner = 1;
         wvous-br-corner = 1;
@@ -128,7 +128,10 @@ in
 
   homebrew = {
     enable = lib.mkForce true;
-    onActivation.cleanup = lib.mkDefault "zap";
+    onActivation = lib.mkDefault {
+      upgrade = true;
+      cleanup = "zap";
+    };
     brews = [
       "borders"
       "tpm"

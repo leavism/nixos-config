@@ -1,6 +1,8 @@
-{ config, user,... }:
+{ config, user, ... }:
 
-let username = user.username; in
+let
+  username = user.username;
+in
 {
   imports = [
     ./common
@@ -27,55 +29,11 @@ let username = user.username; in
   };
 
   system = {
-    stateVersion = 4;
-    checks.verifyNixPath = false;
-
+    # This overrides what's configured in common/default.nix
     defaults = {
-      finder = {
-        NewWindowTarget = "Home";
-        FXPreferredViewStyle = "Nlsv";
-      };
-      NSGlobalDomain = {
-        AppleShowAllExtensions = true;
-        ApplePressAndHoldEnabled = false;
-
-        KeyRepeat = 2; # Values: 120, 90, 60, 30, 12, 6, 2
-        InitialKeyRepeat = 15; # Values: 120, 94, 68, 35, 25, 15
-
-        "com.apple.mouse.tapBehavior" = 1;
-        "com.apple.sound.beep.volume" = 0.0;
-        "com.apple.sound.beep.feedback" = 0;
-      };
-
       dock = {
-        autohide = false;
-        show-recents = false;
-        launchanim = true;
-        orientation = "left";
-        tilesize = 40;
-        persistent-apps = [
-          "/System/Cryptexes/App/System/Applications/Safari.app"
-          "/Applications/Zen Browser.app"
-          "/System/Applications/Messages.app/"
-          "/System/Applications/iPhone Mirroring.app/"
-          "/Applications/Obsidian.app"
-        ];
+        tilesize = 48;
       };
     };
   };
-
-  # Fully declarative dock using the latest from Nix Store
-  # local.dock.enable = true;
-  # local.dock.entries = [
-  #   { path = "/System/Cryptexes/App/System/Applications/Safari.app"; }
-  #   { path = "/Applications/Zen Browser.app"; }
-  #   { path = "/System/Applications/Messages.app/"; }
-  #   { path = "/System/Applications/iPhone Mirroring.app/"; }
-  #   { path = "/Applications/Obsidian.app"; }
-  #   {
-  #     path = "${config.users.users.${username}.home}/Downloads";
-  #     section = "others";
-  #     options = "--sort dateadded --view grid --display stack";
-  #   }
-  # ];
 }

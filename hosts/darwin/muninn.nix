@@ -69,7 +69,7 @@
           "/Applications/Obsidian.app"
           "/Applications/Todoist.app/"
         ];
-        
+
         persistent-others = [
           "/Users/${user.username}/Sync"
           "/Users/${user.username}/Downloads"

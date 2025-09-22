@@ -54,6 +54,20 @@ in
         launchanim = true;
         orientation = "left";
         tilesize = 40;
+        persistent-apps = [
+          "/System/Cryptexes/App/System/Applications/Safari.app"
+          "/Applications/Zen.app"
+          "/System/Applications/Messages.app/"
+          "/System/Applications/iPhone Mirroring.app/"
+          "/Applications/Obsidian.app"
+          "/Applications/Todoist.app/"
+        ];
+
+        persistent-others = [
+          "/Users/${user.username}/Sync"
+          "/Users/${user.username}/Downloads"
+        ];
+
         # https://mynixos.com/nix-darwin/option/system.defaults.dock.wvous-bl-corner
         wvous-bl-corner = 1;
         wvous-br-corner = 1;
@@ -156,6 +170,7 @@ in
       "logi-options+"
       "figma"
       "discord"
+      "todoist-app"
 
       "adguard"
       "transmission"

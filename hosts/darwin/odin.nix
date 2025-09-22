@@ -1,4 +1,9 @@
-{ config, user, ... }:
+{
+  config,
+  user,
+  lib,
+  ...
+}:
 
 let
   username = user.username;
@@ -11,10 +16,10 @@ in
   # === Common Homebrew Configuration Overwrite ===
   # Check what the defaults are in ./common/default.nix
   homebrew = {
-    brews = [
+    brews = lib.mkAfter [
       "docker"
     ];
-    casks = [
+    casks = lib.mkAfter [
       # Extends the cask list in the common configuration
       "macs-fan-control"
     ];

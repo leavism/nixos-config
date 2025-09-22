@@ -15,7 +15,6 @@
       "swish"
       "alcove" # Notch app
       "aldente" # Battery management https://apphousekitchen.com/
-      "todoist"
     ];
     masApps = {
       # Extends the cask list in the common configuration
@@ -53,32 +52,7 @@
       };
 
       dock = {
-        # https://mynixos.com/nix-darwin/options/system.defaults.dock
-        autohide = true;
-        autohide-time-modifier = 0.2;
-
-        show-recents = false;
-        launchanim = true;
-        orientation = "left";
-        tilesize = 48;
-        persistent-apps = [
-          "/System/Cryptexes/App/System/Applications/Safari.app"
-          "/Applications/Zen.app"
-          "/System/Applications/Messages.app/"
-          "/System/Applications/iPhone Mirroring.app/"
-          "/Applications/Obsidian.app"
-          "/Applications/Todoist.app/"
-        ];
-
-        persistent-others = [
-          "/Users/${user.username}/Sync"
-          "/Users/${user.username}/Downloads"
-        ];
-        # https://mynixos.com/nix-darwin/option/system.defaults.dock.wvous-bl-corner
-        wvous-bl-corner = 1;
-        wvous-br-corner = 1;
-        wvous-tl-corner = 1;
-        wvous-tr-corner = 1;
+        tilesize = 40;
       };
     };
   };

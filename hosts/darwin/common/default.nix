@@ -1,6 +1,5 @@
 /*
   === Configuration for All macOS Devices ===
-  *
   * Sensible defaults for all my macOS machines.
 */
 {

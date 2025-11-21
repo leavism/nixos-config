@@ -1,7 +1,7 @@
 {
-  config,
   user,
   lib,
+  pkgs,
   ...
 }:
 
@@ -13,6 +13,14 @@ in
     ./common
   ];
 
+  # === Additional nix packages for Odin ===
+  environment.systemPackages = lib.mkAfter (
+    with pkgs;
+    [
+      qmk
+    ]
+  );
+
   # === Common Homebrew Configuration Overwrite ===
   # Check what the defaults are in ./common/default.nix
   homebrew = {
@@ -22,6 +30,7 @@ in
     casks = lib.mkAfter [
       # Extends the cask list in the common configuration
       "macs-fan-control"
+      "calibre"
     ];
     masApps = {
       # Extends the cask list in the common configuration

@@ -155,6 +155,7 @@ in
     casks = [
       "font-geist-mono-nerd-font"
       "appcleaner"
+      "claude-code"
 
       "ghostty"
       "visual-studio-code"
@@ -182,8 +183,6 @@ in
       "obsidian"
     ];
     masApps = {
-      "Goodnotes 6" = 1444383602;
-
       "Fantastical" = 975937182;
       "Microsoft OneNote" = 784801555;
       "OneDrive" = 823766827;

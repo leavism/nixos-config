@@ -22,6 +22,7 @@ with pkgs;
   pyenv
   tailscale
   bat
+  btop
 
   # Configurations
   chezmoi

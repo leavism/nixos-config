@@ -142,7 +142,11 @@ in
 
   homebrew = {
     enable = lib.mkForce true;
+    global = {
+      autoUpdate = true;
+    };
     onActivation = lib.mkDefault {
+      autoUpdate = true;
       upgrade = true;
       cleanup = "zap";
     };
@@ -166,6 +170,7 @@ in
       "splashtop-business"
       "microsoft-teams"
       "1password"
+      "google-chrome" # for playwright testing
 
       "bitwarden"
       "logi-options+"
@@ -190,6 +195,7 @@ in
       "Microsoft Outlook" = 985367838;
       "Microsoft Word" = 462054704;
       "Microsoft PowerPoint" = 462062816;
+      "Todoist" = 585829637;
     };
   };
 

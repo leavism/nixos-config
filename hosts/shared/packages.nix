@@ -23,6 +23,16 @@ with pkgs;
   tailscale
   bat
   btop
+  # Yazi
+  yazi
+  ffmpeg
+  # might need p7zip
+  jq
+  poppler
+  fd
+  resvg
+  imagemagick
+  nerd-fonts.symbols-only
 
   # Configurations
   chezmoi

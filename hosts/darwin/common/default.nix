@@ -155,8 +155,19 @@ in
       "tpm"
       "gh"
       "nvm"
+      "yazi"
+      "ffmpeg"
+      "sevenzip"
+      "jq"
+      "poppler"
+      "fd"
+      "resvg"
+      "imagemagick"
     ];
     casks = [
+      "claude-code"
+      "font-symbols-only-nerd-font"
+
       "font-geist-mono-nerd-font"
       "appcleaner"
       "claude-code"

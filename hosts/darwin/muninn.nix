@@ -15,6 +15,7 @@
       "swish"
       "alcove" # Notch app
       "aldente" # Battery management https://apphousekitchen.com/
+      "hammerspoon"
     ];
     masApps = {
       # Extends the cask list in the common configuration

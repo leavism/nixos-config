@@ -85,7 +85,7 @@ in
   services.jankyborders = {
     enable = true;
     hidpi = false; # September 2025 - True breaks borders
-    active_color = "0xFF89B4FA";
+    active_color = "0xFF869a6e";
     inactive_color = "0x00";
     width = 10.0;
     order = "above";
@@ -166,11 +166,11 @@ in
     ];
     casks = [
       "claude-code"
-      "font-symbols-only-nerd-font"
+      "claude"
 
+      "font-symbols-only-nerd-font"
       "font-geist-mono-nerd-font"
       "appcleaner"
-      "claude-code"
 
       "ghostty"
       "visual-studio-code"
@@ -184,10 +184,8 @@ in
       "google-chrome" # for playwright testing
 
       "bitwarden"
-      "logi-options+"
       "figma"
       "discord"
-      "todoist-app"
 
       "adguard"
       "transmission"
@@ -195,7 +193,6 @@ in
       "keka"
       "cleanshot"
       "homerow"
-      "aerospace"
       "obsidian"
     ];
     masApps = {

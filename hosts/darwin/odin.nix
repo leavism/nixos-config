@@ -31,6 +31,7 @@ in
       # Extends the cask list in the common configuration
       "macs-fan-control"
       "calibre"
+      "aerospace"
     ];
     masApps = {
       # Extends the cask list in the common configuration

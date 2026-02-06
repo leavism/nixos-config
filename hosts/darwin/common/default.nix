@@ -210,6 +210,7 @@ in
   # Enable home-manager
   home-manager = {
     useGlobalPkgs = true;
+    backupFileExtension = ".bak";
     users.${username} =
       {
         pkgs,
@@ -229,6 +230,17 @@ in
           # git = darwinHomeManager.git // { # Don't forget to merge into darwinHomeManager.git
           #   userName = "overrideUserName";  # This overrides the shared config
           # };
+          direnv = {
+            enable = true;
+            enableZshIntegration = true;
+            nix-direnv.enable = true;
+          };
+          zsh = {
+            enable = true;
+            initExtra = ''
+              source ~/.config/zsh/.zshrc
+            '';
+          };
         }
         // import ../../shared/home-manager.nix {
           inherit

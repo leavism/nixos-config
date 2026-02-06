@@ -19,6 +19,7 @@ with pkgs;
   gum
   eza
   ripgrep
+  direnv
   pyenv
   tailscale
   bat

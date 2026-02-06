@@ -46,15 +46,14 @@ in
     enable = true;
     enableDefaultConfig = false;
     includes = [
-      (lib.mkIf pkgs.stdenv.hostPlatform.isLinux "/home/${username}/.ssh/config_external")
-      (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "/Users/${username}/.ssh/config_external")
+      "~/.ssh/config_external"
     ];
     matchBlocks = {
       "github.com" = {
         hostname = "github.com";
         user = "git";
         identitiesOnly = true;
-        identityFile = "/Users/${username}/.ssh/id_ed25519";
+        identityFile = "~/.ssh/id_ed25519";
       };
     };
   };

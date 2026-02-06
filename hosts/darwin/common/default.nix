@@ -155,14 +155,6 @@ in
       "tpm"
       "gh"
       "nvm"
-      "yazi"
-      "ffmpeg"
-      "sevenzip"
-      "jq"
-      "poppler"
-      "fd"
-      "resvg"
-      "imagemagick"
     ];
     casks = [
       "claude-code"
@@ -237,7 +229,7 @@ in
           };
           zsh = {
             enable = true;
-            initExtra = ''
+            initContent = ''
               source ~/.config/zsh/.zshrc
             '';
           };
